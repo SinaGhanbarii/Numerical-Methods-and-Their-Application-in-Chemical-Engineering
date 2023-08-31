@@ -12,12 +12,9 @@ This repository serves as a comprehensive resource for students, researchers, an
 
 🔬 **Real-world Applications:** Discover how numerical methods play a pivotal role in tackling challenges across diverse domains within chemical engineering. From reactor design and optimization to thermodynamic analysis and fluid flow simulations, we explore practical applications that bridge theory with industry needs.
 
-📊 **Visualizations:** Visualizing complex data and simulation results is crucial for a deeper understanding. Explore our repository's visualization resources that help make intricate numerical concepts more accessible and intuitive.
-
 🤝 **Collaboration:** We encourage collaboration from the community. Whether you're interested in contributing code enhancements, sharing your insights through tutorials, or suggesting new areas of exploration, your participation is valued and appreciated.
 
 🌐 **Resources:** In the "Resources" section, you'll find curated links to textbooks, research papers, online courses, and tools relevant to numerical methods and chemical engineering. These resources can further enrich your learning journey.
 
 Join us in the journey of unraveling the synergy between numerical methods and chemical engineering. Let's collectively enhance our problem-solving skills, foster innovation, and contribute to the advancement of both fields. Feel free to explore, learn, contribute, and connect with fellow enthusiasts!
 
-Connect with us on social media: #NumericalChemEngRepo
