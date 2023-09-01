@@ -1,3 +1,11 @@
+% ╔══════════════════════════════════════════╗
+% ║                                          ║
+% ║  Creator: MohammadSina GhanbariPakdehi   ║
+% ║  Contact:                                ║
+% ║ ghanbaripakdehi.m@northeastern.edu       ║
+% ╚══════════════════════════════════════════╝
+
+% False-Position Method in Nonlinear Equation solution
 clear,clc       %Clearing the worlspace and Command Window
 syms x 
 f = input('Enter the equation: ');
