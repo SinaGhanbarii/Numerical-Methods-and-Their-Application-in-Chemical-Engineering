@@ -1,3 +1,11 @@
+% ╔══════════════════════════════════════════╗
+% ║                                          ║
+% ║  Creator: MohammadSina GhanbariPakdehi   ║
+% ║  Contact:                                ║
+% ║ ghanbaripakdehi.m@northeastern.edu       ║
+% ╚══════════════════════════════════════════╝
+
+% Bisection Method in Nonlinear Equation solution
 clear, clc;     % Clearing Workspace & Command Window
 syms x          % Import symbolic math toolbox
 g = input('Enter the equation of function f(x): ');
