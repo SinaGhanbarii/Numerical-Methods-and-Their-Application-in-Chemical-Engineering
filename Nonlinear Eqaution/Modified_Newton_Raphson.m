@@ -1,6 +1,11 @@
-%% Modified Newton Raphson method to solve nonlinear equation
-%% MohammadSina Ghanbari Pakdehi
-% Chemical and Petroleum Engineering Department - Fall 2021
+% ╔══════════════════════════════════════════╗
+% ║                                          ║
+% ║  Creator: MohammadSina GhanbariPakdehi   ║
+% ║  Contact:                                ║
+% ║ ghanbaripakdehi.m@northeastern.edu       ║
+% ╚══════════════════════════════════════════╝
+% Modified Newton-Raphson Method in Nonlinear Equation Solution
+
 clear,clc
 syms x
 f = input('Enter the equation: ');
