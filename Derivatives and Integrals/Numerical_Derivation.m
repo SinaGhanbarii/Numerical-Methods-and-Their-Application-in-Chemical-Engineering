@@ -1,3 +1,10 @@
+% ╔══════════════════════════════════════════╗
+% ║                                          ║
+% ║  Creator: Pouria Motahhari               ║
+% ║  Contact:                                ║
+% ║ pouria.motahhari@sharif.edu              ║
+% ╚══════════════════════════════════════════╝
+
 %Numerical derivation
 clc, clear       % Clearing Workspace & Command Window
 
