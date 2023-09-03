@@ -1,4 +1,10 @@
-
+% ╔══════════════════════════════════════════╗
+% ║                                          ║
+% ║  Creator: Sohrab Hejazi                  ║
+% ║  Contact:                                ║
+% ║ shejazi@ualberta.ca                      ║
+% ╚══════════════════════════════════════════╝
+% Gauss Elimination Method for Solving the System of Linear Equations
 A=[0 1 -1;-2 4 -1;-2 5 -4]; %This is a sample. you can change the matrice
 b=[3;1;-2]; %This is a sample. you can change the matrice
 C=[A b];
