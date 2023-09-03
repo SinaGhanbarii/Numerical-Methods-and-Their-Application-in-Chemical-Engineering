@@ -1,7 +1,13 @@
+% ╔══════════════════════════════════════════╗
+% ║                                          ║
+% ║  Creator: Pouria Motahhari               ║
+% ║  Contact:                                ║
+% ║ pouria.motahhari@sharif.edu              ║
+% ╚══════════════════════════════════════════╝
+
+%Numerical derivation
 clc, clear       % Clearing Workspace & Command Window
-
 syms x
-
 f(x)= x^4-5*x^3+6*x^2+4*x+sin(2 - x)-5;   %This is a sample continuous function. you can change this function.
 x_l=0.9;   %This is a sample. you can change lower bounds.
 x_u=2.5;   %This is a sample. you can change upper bounds.
