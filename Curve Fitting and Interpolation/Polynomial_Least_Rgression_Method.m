@@ -1,3 +1,10 @@
+% ╔══════════════════════════════════════════╗
+% ║                                          ║
+% ║  Creator: MohammadSina GhanbariPakdehi   ║
+% ║  Contact:                                ║
+% ║ ghanbaripakdehi.m@northeastern.edu       ║
+% ╚══════════════════════════════════════════╝
+
 % Polynomial Least Regression Method
 clear, clc
 x = [0, 20, 40, 60, 80, 100, 120, 140];
