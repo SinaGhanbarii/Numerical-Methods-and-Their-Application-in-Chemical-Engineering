@@ -1,3 +1,10 @@
+% ╔══════════════════════════════════════════╗
+% ║                                          ║
+% ║  Creator: MohammadSina GhanbariPakdehi   ║
+% ║  Contact:                                ║
+% ║ ghanbaripakdehi.m@northeastern.edu       ║
+% ╚══════════════════════════════════════════╝
+% Modified Euler (Heun) Method in 1st order ODE Solution
 clear, clc
 syms x
 syms y
