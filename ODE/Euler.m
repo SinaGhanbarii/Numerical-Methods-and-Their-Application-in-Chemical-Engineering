@@ -1,4 +1,10 @@
-% Solving the 1st Order Linear ODEs using Euler Method
+% ╔══════════════════════════════════════════╗
+% ║                                          ║
+% ║  Creator: MohammadSina GhanbariPakdehi   ║
+% ║  Contact:                                ║
+% ║ ghanbaripakdehi.m@northeastern.edu       ║
+% ╚══════════════════════════════════════════╝
+% Midpoint (Polygon) Method in 1st order ODE Solution
 clear, clc
 syms x
 f = input('Enter the equation of f(x,y): ');    
