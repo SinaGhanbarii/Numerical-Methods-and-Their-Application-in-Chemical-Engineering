@@ -1,8 +1,8 @@
 % ╔══════════════════════════════════════════╗
 % ║                                          ║
-% ║  Creator: MohammadSina GhanbariPakdehi   ║
+% ║  Creator: Pouria Motahhari               ║
 % ║  Contact:                                ║
-% ║ ghanbaripakdehi.m@northeastern.edu       ║
+% ║ pouria.motahhari@sharif.edu              ║
 % ╚══════════════════════════════════════════╝
 % Lagrange Interpolation
 
