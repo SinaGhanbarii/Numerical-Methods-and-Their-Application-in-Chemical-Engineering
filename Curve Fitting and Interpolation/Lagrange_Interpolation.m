@@ -1,4 +1,10 @@
-% Lagrange Interploation
+% ╔══════════════════════════════════════════╗
+% ║                                          ║
+% ║  Creator: MohammadSina GhanbariPakdehi   ║
+% ║  Contact:                                ║
+% ║ ghanbaripakdehi.m@northeastern.edu       ║
+% ╚══════════════════════════════════════════╝
+% Lagrange Interpolation
 
 clc, clear   % Clearing Workspace & Command Window
 x=[3.35,3.4,3.5,3.6];   %This is a sample. you can change x'es (but you must have constant interval)
