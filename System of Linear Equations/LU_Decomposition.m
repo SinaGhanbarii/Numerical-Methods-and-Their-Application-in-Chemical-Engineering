@@ -1,4 +1,10 @@
-%LU Decomposition Method for Solving the System of Linear Equations
+% ╔══════════════════════════════════════════╗
+% ║                                          ║
+% ║  Creator: Sohrab Hejazi                  ║
+% ║  Contact:                                ║
+% ║ shejazi@ualberta.ca                      ║
+% ╚══════════════════════════════════════════╝
+% LU Decomposition Method for Solving the System of Linear Equations
 
 A=[1 7 -4;4 -4 9;12 -1 3]; %This is a sample. you can change the matrice
 b=[-51;62;8];            %This is a sample. you can change the matrice
