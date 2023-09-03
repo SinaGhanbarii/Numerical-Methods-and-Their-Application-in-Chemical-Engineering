@@ -1,3 +1,11 @@
+% ╔══════════════════════════════════════════╗
+% ║                                          ║
+% ║  Creator: Pouria Motahhari               ║
+% ║  Contact:                                ║
+% ║ pouria.motahhari@sharif.edu              ║
+% ╚══════════════════════════════════════════╝
+
+%Numerical derivation
 clc, clear   % Clearing Workspace & Command Window
 x=[1,2,3,4,5];   %This is a sample. you can change x'es (but you must have constant interval)
 h=1;
