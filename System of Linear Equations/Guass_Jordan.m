@@ -1,3 +1,10 @@
+% ╔══════════════════════════════════════════╗
+% ║                                          ║
+% ║  Creator: Sohrab Hejazi                  ║
+% ║  Contact:                                ║
+% ║ shejazi@ualberta.ca                      ║
+% ╚══════════════════════════════════════════╝
+% Gauss-Jordan Method for Solving the System of Linear Equations
 A=[0 4 -1;3 4 2;11 10 15];
 b=[-1;-5;-20];
 n=length(A);
