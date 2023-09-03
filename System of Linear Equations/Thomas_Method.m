@@ -1,6 +1,12 @@
-%% Solving the System of Linear Equations Using Thomas Method
-%% Pouria Motahhari
-% Chemical and Petroleum Engineering Department - Fall 2022
+% ╔══════════════════════════════════════════╗
+% ║                                          ║
+% ║  Creator: Pouria Motahhari               ║
+% ║  Contact:                                ║
+% ║ pouria.motahhari@sharif.edu              ║
+% ╚══════════════════════════════════════════╝
+
+%Numerical derivation
+% Solving the System of Linear Equations Using Thomas Method
 clc, clear       % Clearing Workspace & Command Window
 
 A=[2.015 -0.021 0 0;
