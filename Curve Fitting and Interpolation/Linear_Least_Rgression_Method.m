@@ -1,3 +1,10 @@
+% ╔══════════════════════════════════════════╗
+% ║                                          ║
+% ║  Creator: MohammadSina GhanbariPakdehi   ║
+% ║  Contact:                                ║
+% ║ ghanbaripakdehi.m@northeastern.edu       ║
+% ╚══════════════════════════════════════════╝
+
 %Linear Least Regression Method
 clear, clc
 % These vectors are sample. You can change them later!
