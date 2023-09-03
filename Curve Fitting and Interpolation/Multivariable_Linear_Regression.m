@@ -1,3 +1,10 @@
+% ╔══════════════════════════════════════════╗
+% ║                                          ║
+% ║  Creator: MohammadSina GhanbariPakdehi   ║
+% ║  Contact:                                ║
+% ║ ghanbaripakdehi.m@northeastern.edu       ║
+% ╚══════════════════════════════════════════╝
+
 % Multivariable Linear regression
 clear, clc
 
