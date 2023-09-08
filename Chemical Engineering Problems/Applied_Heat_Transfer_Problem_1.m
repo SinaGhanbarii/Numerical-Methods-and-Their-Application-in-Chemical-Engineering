@@ -12,17 +12,17 @@ clear, clc;
 
 %% Defining Constants
 
-% All constants are example and can be changed based on the problem.
-r1 = 0.6;   % Upper disk diameter (m)
-r2 = 0.6;   % Lower disk diameter (m)
-L = 1.2;    % Length of the cylinder (m)
-epsilon_1 = 0.7;   % Upper disk emissivity
-epsilon_2 = 0.5;   % Lower disk emissivity
-epsilon_3 = 0.4;   % cylinder inner body emissivity
-T1 = 500;   % Upper disk temperature (K)
-T2 = 650;   % Lower disk temperature (K)
+% All constants are sample and can be changed based on the problem.
+r1 = 0.6;                 % Upper disk diameter (m)
+r2 = 0.6;                 % Lower disk diameter (m)
+L = 1.2;                  % Length of the cylinder (m)
+epsilon_1 = 0.7;          % Upper disk emissivity
+epsilon_2 = 0.5;          % Lower disk emissivity
+epsilon_3 = 0.4;          % cylinder inner body emissivity
+T1 = 500;                 % Upper disk temperature (K)
+T2 = 650;                 % Lower disk temperature (K)
 sigma = 5.67 * 10^(-8);   % Stefan-Boltzmann Constant (W/(m^2.K^4))
-Q2 = 1400;   % Heat transfer to the lower disk (W)
+Q2 = 1400;                % Heat transfer to the lower disk (W)
 
 
 %% Shape Factor Calculations
@@ -49,10 +49,9 @@ Res_23 = 1/( pi*r2^2*F23 );
 
 Eb1 = sigma * T1^4;   Eb2 = sigma * T2^4;
 
-J2 = Eb2 -Q2 * Res_2;
+J2 = Eb2 - Q2 * Res_2;
 
 %% Energy Balance and System of Linear Equations Solving
-
 % regular solving
 
 Coefficients_Matrix = [ (-1/Res_1) + (-1/Res_12) + (-1/Res_13),  (1/Res_13),  0;
@@ -77,7 +76,7 @@ fprintf("Regular Q12:"), disp(Q12_regular);
 fprintf("Regular Q23:"), disp(Q23_regular);
 fprintf("------------------------------\n")
 
-% Gauss-Seidel Method
+%% Gauss-Seidel Method
 
 S = [1; 1; 1];  % Initial Guess - This is a sample. You can change it later!
 Gauss_Seidel_Answers = ones(length(Constants_Matrix), 1);  % Initialize x as a column vector
@@ -131,7 +130,7 @@ for j=1:n-1
     end
 end
 
-for j=n:-1:2 
+for j=n:-1:2
     for  i=j-1:-1:1
         M(i,:)=M(i,:)-M(j,:)*(M(i,j)/M(j,j));
     end
@@ -155,7 +154,7 @@ fprintf("Gauss-Jordan Q12:"), disp(Q12_Gauss_Jordan);
 fprintf("Gauss-Jordan Q23:"), disp(Q23_Gauss_Jordan);
 fprintf("------------------------------\n");
 
-% Gaussian Elimination Method
+%% Gaussian Elimination Method
 
 C=[Coefficients_Matrix Constants_Matrix];
 
@@ -171,27 +170,27 @@ for i=1:n-1
 end
 
 for k=1:n-1
-   for i=k+1:n
-      s=Coefficients_Matrix(i,k)/Coefficients_Matrix(k,k);
-      for j=k+1:n
-         Coefficients_Matrix(i,j)=Coefficients_Matrix(i,j)-s*Coefficients_Matrix(k,j);
-      end
-      Constants_Matrix(i)=Constants_Matrix(i)-s*Constants_Matrix(k);
-   end
+    for i=k+1:n
+        s=Coefficients_Matrix(i,k)/Coefficients_Matrix(k,k);
+        for j=k+1:n
+            Coefficients_Matrix(i,j)=Coefficients_Matrix(i,j)-s*Coefficients_Matrix(k,j);
+        end
+        Constants_Matrix(i)=Constants_Matrix(i)-s*Constants_Matrix(k);
+    end
 end
 
 Gaussian_Elimination_Answers(n)=Constants_Matrix(n)/Coefficients_Matrix(n,n);
 for i=n-1:-1:1
-   r=0;
-   for j=i+1:n
-      r=r+Coefficients_Matrix(i,j)*Gaussian_Elimination_Answers(j);
-      Gaussian_Elimination_Answers(i)=(Constants_Matrix(i)-r)/Coefficients_Matrix(i,i);
-   end 
+    r=0;
+    for j=i+1:n
+        r=r+Coefficients_Matrix(i,j)*Gaussian_Elimination_Answers(j);
+        Gaussian_Elimination_Answers(i)=(Constants_Matrix(i)-r)/Coefficients_Matrix(i,i);
+    end
 end
 for i=1:n
-   for j=1:n
-      if (j<i) Coefficients_Matrix(i,j)=0; end
-   end
+    for j=1:n
+        if (j<i) Coefficients_Matrix(i,j)=0; end
+    end
 end
 
 J1_Gaussian_Elimination = Gaussian_Elimination_Answers (1);
@@ -205,12 +204,165 @@ Q23_Gaussian_Elimination = (J2 -J3_Gaussian_Elimination)/Res_23;
 fprintf("Gaussian Elimination T3:"), disp(T3_Gaussian_Elimination);
 fprintf("Gaussian Elimination Q12:"), disp(Q12_Gaussian_Elimination);
 fprintf("Gaussian Elimination Q23:"), disp(Q23_Gaussian_Elimination);
+fprintf("------------------------------\n")
 
+%% LU Decomposition Method
 
+A = Coefficients_Matrix;
+b = Constants_Matrix;
+C=[A b];
 
+n = length(b);
+LU_Decomposition_Answers = zeros(n,1);
+d = zeros(n,1);
 
+for i=1:n-1
+    if A(i,i)==0
+        [m,k]=max(abs(A(i+1:end,i)));
+        A(i,:)=A(i,:)+A(i+k,:);
+        b(i)=b(i)+b(i+k);
+    end
+end
 
+L(1,1)=A(1,1);
+for i=1:n
+    U(i,i)=1;
+end
 
+for j=2:n
+    L(j,1)=A(j,1);
+    U(1,j)=A(1,j)/A(1,1);
+end
 
+for i=2:n-1
+    S=0;
+    for k=1:i-1
+        S=S+U(k,i)*L(i,k);
+    end
+    L(i,i)=(A(i,i)-S)/U(i,i);
+    for j=i+1:n
+        S=0;
+        for k=1:i-1
+            S=S+U(k,i)*L(j,k);
+        end
+        L(j,i)=(A(j,i)-S)/U(i,i);
+        S=0;
+        for k=1:i-1
+            S=S+U(k,j)*L(i,k);
+        end
+        U(i,j)=(A(i,j)-S)/L(i,i);
+    end
+end
 
+S=0;
+for k=1:n-1
+    S=S+U(k,n)*L(n,k);
+end
+L(n,n)=(A(n,n)-S)/U(n,n);
 
+d(1)=b(1)/L(1,1);
+for i=2:n
+    t=0;
+    for k=1:i-1
+        t=t+L(i,k)*d(k);
+    end
+    d(i)=(b(i)-t)/L(i,i);
+end
+
+LU_Decomposition_Answers(n)=d(n);
+for j=n-1:-1:1
+    r=0;
+    for k=j+1:n
+        r=r+U(j,k)*LU_Decomposition_Answers(k);
+    end
+    LU_Decomposition_Answers(j)=d(j)-r;
+end
+
+J1_LU_Decomposition = LU_Decomposition_Answers (1);
+J3_LU_Decomposition = LU_Decomposition_Answers (2);
+Eb3_LU_Decomposition = LU_Decomposition_Answers (3);
+
+T3_LU_Decomposition = (Eb3_LU_Decomposition/sigma)^0.25;
+Q12_LU_Decomposition = (J2 -J1_LU_Decomposition)/Res_12;
+Q23_LU_Decomposition = (J2 -J3_LU_Decomposition)/Res_23;
+
+fprintf("LU Decomposition T3:"), disp(T3_LU_Decomposition);
+fprintf("LU Decomposition Q12:"), disp(Q12_LU_Decomposition);
+fprintf("LU Decomposition Q23:"), disp(Q23_LU_Decomposition);
+fprintf("------------------------------\n")
+
+%% Thomas Method
+
+A = Coefficients_Matrix;
+
+C = Constants_Matrix;
+
+n=length(C);
+Thomas_Answers=zeros(n,1);
+
+%we'll save A & C matrices intact and do the pivoting on another matrix
+LU=A;   %matrix to pivot
+C_LU=C; %matrix to pivot
+
+for k=1:n
+    if A(k,k)==0
+        [LU,C_LU]=pivot(LU,C_LU);
+    end
+end     %partial pivoting for main diameter
+
+%Part A: decomposition for
+%the first column and the lower diameter
+%no need to modify the A or LU matrix
+
+%Part B----partial pivoting for main diameter
+for k=1:n
+    if LU(k,k)==0
+        [LU,C_LU]=pivot(LU,C_LU);
+    end
+end
+
+%Part C----decomposition for the main and upper diameters:
+%gamma(j)=U(j,j+1)=LU(j,j+1) for: j=1:n-1
+%therefore we have to substract j from 1
+for j=2:n
+    LU(j-1,j)=LU(j-1,j)/LU(j-1,j-1); %for gamma(j-1) j=2:n
+    LU(j,j)=LU(j,j)- LU(j,j-1)* LU(j-1,j); %for beta(j) j=2:n
+end
+%------------------------
+
+%Part A: forward subtitution (LD=C):
+D=Thomas_Answers;
+D(1)=C_LU(1)/LU(1,1); %for the first d (  d(1) )
+
+for k=2:n
+    sum=0;
+    for m=1:k-1
+        sum=sum+D(m)*LU(k,m);
+    end
+
+    D(k)=(C_LU(k)-sum) /LU(k,k);
+end
+
+%Part B:back subtitution (UX=D):
+Thomas_Answers(n)=D(n); %for the last x (xn)
+
+for k=n-1:-1:1
+    sum=0;
+    for m=n:-1:k+1
+        sum=sum+Thomas_Answers(m)*LU(k,m);
+    end
+
+    Thomas_Answers(k)=D(k)-sum;
+end
+
+J1_Thomas = Thomas_Answers (1);
+J3_Thomas = Thomas_Answers (2);
+Eb3_Thomas = Thomas_Answers (3);
+
+T3_Thomas = (Eb3_Thomas/sigma)^0.25;
+Q12_Thomas = (J2 -J1_Thomas)/Res_12;
+Q23_Thomas = (J2 -J3_Thomas)/Res_23;
+
+fprintf("Thomas T3:"), disp(T3_Thomas);
+fprintf("Thomas Q12:"), disp(Q12_Thomas);
+fprintf("Thomas Q23:"), disp(Q23_Thomas);
