@@ -364,6 +364,3 @@ Q23_Thomas = (J2 -J3_Thomas)/Res_23;
 fprintf("Thomas T3:"), disp(T3_Thomas);
 fprintf("Thomas Q12:"), disp(Q12_Thomas);
 fprintf("Thomas Q23:"), disp(Q23_Thomas);
-
-
-
