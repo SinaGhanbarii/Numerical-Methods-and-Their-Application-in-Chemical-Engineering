@@ -6,7 +6,7 @@
 
 % Applied Heat Transfer
 % Radiation Heat Transfer
-% Heat Exchange Between Nonblackbodies
+% Problem 1
 
 clear, clc;
 
@@ -105,7 +105,7 @@ fprintf("Gauss-Seidel Q12:"), disp(Q12_Gauss_Seidel);
 fprintf("Gauss-Seidel Q23:"), disp(Q23_Gauss_Seidel);
 fprintf("------------------------------\n")
 
-% Gauss-Jordan Method
+%% Gauss-Jordan Method
 
 n = length(Coefficients_Matrix);
 Gauss_Jordan_Answers = zeros(n,1);
@@ -294,9 +294,7 @@ fprintf("------------------------------\n")
 %% Thomas Method
 
 A = Coefficients_Matrix;
-
 C = Constants_Matrix;
-
 n=length(C);
 Thomas_Answers=zeros(n,1);
 
@@ -366,3 +364,6 @@ Q23_Thomas = (J2 -J3_Thomas)/Res_23;
 fprintf("Thomas T3:"), disp(T3_Thomas);
 fprintf("Thomas Q12:"), disp(Q12_Thomas);
 fprintf("Thomas Q23:"), disp(Q23_Thomas);
+
+
+
