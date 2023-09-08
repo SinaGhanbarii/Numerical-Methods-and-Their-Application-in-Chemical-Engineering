@@ -6,7 +6,7 @@
 
 % Applied Heat Transfer
 % Radiation Heat Transfer
-% Problem 1
+% Heat Exchange between nonblackbodies
 
 clear, clc;
 
