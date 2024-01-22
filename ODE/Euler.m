@@ -6,6 +6,7 @@
 % ╚══════════════════════════════════════════╝
 % Euler Method in 1st order ODE Solution
 clear, clc
+tic;
 syms x
 f = input('Enter the equation of f(x,y): ');    
 X = input('Enter the range of xi as a vector: ');
@@ -26,3 +27,4 @@ plot(X,Y)
 xlabel('xi')
 ylabel('yi')
 title('yi vs xi diagram')
+toc;
