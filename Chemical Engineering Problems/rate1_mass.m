@@ -4,7 +4,7 @@ global k vel km
 % y(1) is CA, y(2) is CB, y(3) is CC
 CA=y(1);
 % mass transfer problem
-OPTIONS=[]
+OPTIONS=[];
 CAguess=CA;
 CAs=fzero(@mass_rxn,CAguess,OPTIONS,CA);
 rate=k*CAs*CAs;
